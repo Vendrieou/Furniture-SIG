@@ -25,11 +25,55 @@ export default class BingMap extends React.Component {
         // return React.createElement("div", { ref: this.mapRef, className: "map" });
     }
     initMap() {
-        const { mapOptions } = this.props
-        const map = new Microsoft.Maps.Map(this.mapRef.current);
+        const { mapOptions, pushPin } = this.props
+        let map, infobox;
+        map = new Microsoft.Maps.Map(this.mapRef.current);
+
+        //Create an infobox at the center of the map but don't show it.
+        infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+            visible: false
+        });
+
+        //Assign the infobox to a map instance.
+        infobox.setMap(map);
 
         if (mapOptions) {
             map.setOptions(mapOptions);
+        }
+
+        // add pindata
+        if (pushPin.length) {
+            for (var i = 0; i < pushPin.length; i += 1) {
+                var pin = new Microsoft.Maps.Pushpin(pushPin[i].item);
+
+                //Store some metadata with the pushpin.
+                pin.metadata = {
+                    title: pushPin[i].title || '',
+                    text: pushPin[i].text || '',
+                    description: pushPin[i].description || ''
+                };
+
+                //Add a click event handler to the pushpin.
+                Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked);
+
+                //Add pushpin to the map.
+                map.entities.push(pin);
+            }
+        }
+
+
+        function pushpinClicked(e) {
+            //Make sure the infobox has metadata to display.
+            if (e.target.metadata) {
+                //Set the infobox options with the metadata of the pushpin.
+                infobox.setOptions({
+                    location: e.target.getLocation(),
+                    title: e.target.metadata.title,
+                    text: e.target.metadata.text,
+                    description: e.target.metadata.description,
+                    visible: true
+                });
+            }
         }
 
         // add infoboxes, if any
@@ -47,19 +91,6 @@ export default class BingMap extends React.Component {
         // }
         return map;
     }
-
-// const pushpinClicked = (e) => {
-//      //Make sure the infobox has metadata to display.
-//      if (e.target.metadata) {
-//         //Set the infobox options with the metadata of the pushpin.
-//         infobox.setOptions({
-//             location: e.target.getLocation(),
-//             title: e.target.metadata.title,
-//             description: e.target.metadata.description,
-//             visible: true
-//         });
-//     }
-// }
 }
 
 
