@@ -9,7 +9,6 @@ const map = () => {
                 center: [3.586467301483079, 98.68950745798949],
             }}
             bingMapKey={BING_MAP_KEY}
-            // height="auto"
         />
     )
 }

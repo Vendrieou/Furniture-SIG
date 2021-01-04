@@ -1,4 +1,4 @@
-import React, { useState }from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -47,35 +47,45 @@ const Price = styled.div`
 
 
 const Card = ({
-    // title,
-    // subtitle,
-    // price
-    // url
-    // onSelect
+    title,
+    subtitle,
+    price,
+    url,
+    onSelect
 }) => {
     const [active, setActive] = useState(false)
 
-    const handleClick= () => {
-        // if(onSelect){
-        //     onSelect()
-        // }
+    const handleClick = () => {
+        if(onSelect) {
+            onSelect()
+        }
         setActive(!active)
     }
 
     return (
         <>
             <Container onClick={() => handleClick()}>
-                <Image
-                    src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                    alt="chair"
-                    width={160}
-                    height={120}
-                    active={active}
-                 />
+                {url ?
+                    <Image
+                        src={url}
+                        alt={title || ''}
+                        width={160}
+                        height={120}
+                        active={active}
+                    />
+                    :
+                    <Image
+                        src={url}
+                        alt={title || ''}
+                        width={160}
+                        height={120}
+                        active={active}
+                    />
+                }
 
-                <Title >636 E 92nd St</Title>
-                <Subtitle>Canarise, Brooklyn</Subtitle>
-                <Price>$168,000</Price>
+                <Title>{title}</Title>
+                <Subtitle>{subtitle}</Subtitle>
+                <Price>{price}</Price>
             </Container>
         </>
     )

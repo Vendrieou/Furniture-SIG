@@ -19,7 +19,7 @@ export default class BingMap extends React.Component {
     render() {
         const { innerHeight } = this.props
         return (
-            <div ref={this.mapRef} className="map" />
+            <div ref={this.mapRef} className="map" style={{ width: 800, height: innerHeight ? innerHeight : 620 }} />
             // style={{ width: 800, height: innerHeight ? innerHeight : 671 }}
         )
         // return React.createElement("div", { ref: this.mapRef, className: "map" });
