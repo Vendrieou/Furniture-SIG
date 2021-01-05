@@ -48,7 +48,7 @@ const Container = () => {
         <Map />
         <div style={{ margin: '0 1em' }}>
           <HeaderLayout>
-            <HeaderTitle>Furniture GIS</HeaderTitle>
+            <HeaderTitle>Furniture SIG</HeaderTitle>
             <CenterBaseButton>
               <BaseButton color={color.primaryColor} bgColor="transparent">
                 Sign Up
