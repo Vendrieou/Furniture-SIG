@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MY_KEY": "BING_MAP_KEY",
+        "SECRET": "@bing_map_key"
+    }
+}
