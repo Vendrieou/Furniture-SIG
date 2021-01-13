@@ -1,8 +1,10 @@
 import React from 'react'
 import Map from './Map'
 import styled from 'styled-components'
+import { currencyFormatter, truncStr } from '../../utils/string'
 import Card from '../../components/Card'
 import color from '../../utils/color'
+import { SigData } from '../../../public/sigdata.json'
 
 const ContainerLayout = styled.div`
   display: flex;
@@ -45,30 +47,30 @@ const Container = () => {
   return (
     <>
       <ContainerLayout>
-        <Map />
+        <Map SigData={SigData} />
         <div style={{ margin: '0 1em' }}>
           <HeaderLayout>
             <HeaderTitle>Furniture SIG</HeaderTitle>
-            <CenterBaseButton>
+            {/* <CenterBaseButton>
               <BaseButton color={color.primaryColor} bgColor="transparent">
                 Sign Up
               </BaseButton>
               <BaseButton>
                 Login
               </BaseButton>
-            </CenterBaseButton>
+            </CenterBaseButton> */}
 
           </HeaderLayout>
 
           <CardLayout>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+            {SigData.map((item, index) => {
               return (
                 <Card
                   key={index}
-                  url="https://i.pinimg.com/236x/50/0d/25/500d25f7db13838c18b167a69c924d6f--modern-dining-chairs-charcoal.jpg"
-                  title="Hello"
-                  subtitle="Jl besi"
-                  price="Rp 123.000"
+                  url={item.image}
+                  title={item.title}
+                  subtitle={truncStr(item.description,25)}
+                  price={currencyFormatter(item.price)}
                 />
               )
             })}
