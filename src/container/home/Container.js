@@ -7,7 +7,8 @@ import color from '../../utils/color'
 import { SigData } from '../../../public/sigdata.json'
 
 const ContainerLayout = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
 `
 
 const CardLayout = styled.div`
@@ -15,6 +16,10 @@ const CardLayout = styled.div`
   grid-template-columns: repeat(3, minmax(0, 1fr));
   height: 560px;
   overflow-x: scroll;
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+  }
 `
 
 const HeaderLayout = styled.div`
@@ -24,7 +29,9 @@ const HeaderLayout = styled.div`
 `
 
 const HeaderTitle = styled.h1`
-  margin: unset;
+  @media (max-width: 640px) {
+    text-align: center;
+  }
 `
 
 const CenterBaseButton = styled.div`
@@ -49,7 +56,7 @@ const Container = () => {
       <ContainerLayout>
         <Map SigData={SigData} />
         <div style={{ margin: '0 1em' }}>
-          <HeaderLayout>
+          {/* <HeaderLayout> */}
             <HeaderTitle>Furniture SIG</HeaderTitle>
             {/* <CenterBaseButton>
               <BaseButton color={color.primaryColor} bgColor="transparent">
@@ -60,7 +67,7 @@ const Container = () => {
               </BaseButton>
             </CenterBaseButton> */}
 
-          </HeaderLayout>
+          {/* </HeaderLayout> */}
 
           <CardLayout>
             {SigData.map((item, index) => {
