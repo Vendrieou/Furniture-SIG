@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import Map from './Map'
 import styled from 'styled-components'
 import { currencyFormatter, truncStr } from '../../utils/string'
 import Card from '../../components/Card'
-import color from '../../utils/color'
+// import color from '../../utils/color'
 import { SigData } from '../../../public/sigdata.json'
 
 const ContainerLayout = styled.div`
@@ -53,6 +54,21 @@ const HeaderTitle = styled.h1`
 // `
 
 const Container = () => {
+  const [data, setData] = useState([])
+
+  const getList = () =>{
+    let response = axios.get('http://localhost:8080/api/list', {
+      headers: {
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDQ0NDlmZDE0YmNhMmYyOGM2ZGYwNyIsImlhdCI6MTYxMDg5MjQ0NywiZXhwIjoxNjE5NTMyNDQ3fQ.rsmU7rxjH0kz_FdL0zxfP05M7uh9JP4BUkd7wZ_abEs'
+      }
+    })
+    setData(response)
+    console.log("response", response);
+  }
+
+  useEffect(() => {
+    getList()
+  }, [])
 
   return (
     <>
