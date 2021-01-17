@@ -6,7 +6,7 @@ import { BING_MAP_KEY } from '../../utils/config'
 const map = ({ SigData }) => {
     const pinData = SigData.map((item) => {
         return {
-                title: item.title,
+                title: item.name,
                 text: "",
                 description: truncStr(item.description, 20),
                 item: 

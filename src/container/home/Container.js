@@ -94,7 +94,7 @@ const Container = () => {
                 <Card
                   key={index}
                   url={item.image}
-                  title={item.title}
+                  title={item.name}
                   subtitle={truncStr(item.description,25)}
                   price={currencyFormatter(item.price)}
                 />
