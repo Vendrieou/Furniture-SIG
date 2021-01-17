@@ -1,6 +1,5 @@
 import React from 'react'
 import BingMap from '../../components/Map/BingMap'
-import { truncStr } from '../../utils/string'
 import { BING_MAP_KEY } from '../../utils/config'
 
 const map = ({ SigData }) => {
@@ -8,13 +7,13 @@ const map = ({ SigData }) => {
         return {
                 title: item.name,
                 text: "",
-                description: truncStr(item.description, 20),
+                description: item.description,
                 item: 
                 {
                     altitude: 0,
                     altitudeReference: -1,
-                    latitude: item.mapData.lat,
-                    longitude: item.mapData.long
+                    latitude: item.lat,
+                    longitude: item.long
                 }
             }
     })
