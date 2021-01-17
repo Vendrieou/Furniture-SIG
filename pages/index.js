@@ -21,6 +21,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Furniture GIS</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1.0, maximum-scale=5, width=device-width"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>

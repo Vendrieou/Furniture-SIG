@@ -9,6 +9,9 @@ import { SigData } from '../../../public/sigdata.json'
 const ContainerLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
 `
 
 const CardLayout = styled.div`
