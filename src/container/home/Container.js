@@ -25,11 +25,11 @@ const CardLayout = styled.div`
   }
 `
 
-const HeaderLayout = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 1em 0px;
-`
+// const HeaderLayout = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   margin: 1em 0px;
+// `
 
 const HeaderTitle = styled.h1`
   @media (max-width: 640px) {
@@ -37,20 +37,20 @@ const HeaderTitle = styled.h1`
   }
 `
 
-const CenterBaseButton = styled.div`
-  justify-self: center;
-`
+// const CenterBaseButton = styled.div`
+//   justify-self: center;
+// `
 
-const BaseButton = styled.button`
-  padding: 0.8em 36px;
-  background-color: ${props => props.bgColor ? props.bgColor : color.primaryColor};
-  color: ${props => props.color ? props.color : color.white};
-  font-size: 1em;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-`
+// const BaseButton = styled.button`
+//   padding: 0.8em 36px;
+//   background-color: ${props => props.bgColor ? props.bgColor : color.primaryColor};
+//   color: ${props => props.color ? props.color : color.white};
+//   font-size: 1em;
+//   font-weight: bold;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+// `
 
 const Container = () => {
 
