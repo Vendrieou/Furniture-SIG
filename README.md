@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+### Complete Installation
+
+* [Nodejs version v12.14.1](https://nodejs.org/en/)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
+* [Backend App](https://github.com/Vendrieou/Furniture-SIG-api)
+
+* install yarn `yarn install` or `yarn`
+* make `.env` file with `cp .env.example .env`
+* [register BING_MAP_KEY](https://www.bingmapsportal.com/)
+* in `.env` file: fill BING_MAP_KEY=YOUR_BING_MAP_KEY
+* run app `yarn dev`
+* access `localhost:3000`
+
+### Pull Request
+branch -> develop -> main
+
 ## Getting Started
 
 First, run the development server:
