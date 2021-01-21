@@ -1,10 +1,20 @@
 import * as React from "react";
+import styled from "styled-components";
 import { loadBingApi, Microsoft } from "./BingMapLoader";
 
-
-// const screenHeightInit = window.innerHeight;
-// console.log('screenHeightInit', screenHeightInit);
-
+const MapLayout = styled.div`
+    position: relative;
+    @media (max-width: 1280px) {
+        display: grid;
+        width: auto;
+        height: 300px;
+    }
+    @media (max-width: 640px) {
+        display: grid;
+        width: auto;
+        height: 300px;
+    }
+`
 export default class BingMap extends React.Component {
     constructor() {
         super(...arguments);
@@ -19,8 +29,9 @@ export default class BingMap extends React.Component {
     render() {
         const { innerHeight } = this.props
         return (
-            <div ref={this.mapRef} className="map" style={{ width: 800, height: innerHeight ? innerHeight : 620 }} />
-            // style={{ width: 800, height: innerHeight ? innerHeight : 671 }}
+            <MapLayout ref={this.mapRef} className="map" />
+            // <div ref={this.mapRef} className="map" />
+            // style={{ width: 800, height: innerHeight ? innerHeight : 620 }}
         )
         // return React.createElement("div", { ref: this.mapRef, className: "map" });
     }

@@ -11,8 +11,12 @@ const Container = styled.div`
 const Image = styled.img` 
     width: 160px;
     height: 120px;
+    object-fit: cover;
     border-radius: 5px;
     border: ${props => props.active ? '2px solid #00C884' : 'none'};
+    @media (max-width: 640px) {
+        object-fit: scale-down;
+    }
 `
 
 const Title = styled.div`
@@ -69,7 +73,7 @@ const Card = ({
                     <Image
                         src={url}
                         alt={title || ''}
-                        width={160}
+                        width="auto"
                         height={120}
                         active={active}
                     />
@@ -77,7 +81,7 @@ const Card = ({
                     <Image
                         src={url}
                         alt={title || ''}
-                        width={160}
+                        width="auto"
                         height={120}
                         active={active}
                     />
